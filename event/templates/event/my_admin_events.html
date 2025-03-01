@@ -7,17 +7,17 @@
 <body>
     <ul class="products">
         {% for i in events %}
-        <a href="{% url 'event:info_event' i.pk %}">
             <li class="product-wrapper">
-                <div class="product-photo">
-                    <img src="{{ i.image.url }}">
-                </div>
+                <a href="{% url 'event:info_event' i.pk %}">
+                    <div class="product-photo">
+                        <img src="{{ i.image.url }}">
+                    </div>
 
-                <span>
-                    {{ i.title }}
-                </span>
+                    <span>
+                        {{ i.title }}
+                    </span>
+                </a>
             </li>
-        </a>
         {% endfor %}
     </ul>
 </body>

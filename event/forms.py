@@ -10,6 +10,6 @@ class NewItemForm(forms.ModelForm):
             'title': forms.TextInput(),
             'description': forms.Textarea(),
             'image': forms.ClearableFileInput(),
-            'event_datetime': forms.DateTimeInput(),
+            'event_datetime': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
             'status': forms.Select(),
         }
