@@ -36,11 +36,13 @@
                 </a>
             </div>
 
+            {% if user.is_superuser %}
             <div class="nav_button">
                 <a href="{% url 'event:new_event' %}" class="nav_button-link">
                     Новое событие
                 </a>
             </div>
+            {% endif %}
         </nav>
 
         <nav class="auth">

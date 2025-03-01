@@ -6,19 +6,19 @@
 
 <body>
     Новые
-    <div>
+    <ul class="products">
         {% for i in new_events %}
-            <div class="event">
-                <div class="center-image">
-                    <img src="{{ i.image.url }}">
-                </div>
-                
+            <li class="product-wrapper">
                 <span>
                     {{ i.title }}
                 </span>
-            </div>
+
+                <div class="product-photo">
+                    <img src="{{ i.image.url }}" alt="">
+                </div>
+            </li>
         {% endfor %}
-    </div>
+    </ul>
 </body>
 
 {% endblock %}
