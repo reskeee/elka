@@ -97,6 +97,7 @@ input {
     color: #dcf5fe;
     cursor: pointer;
     transition: all 0.3s;
+    text-decoration: none;
 }
 
 .nav_button-link:hover {
@@ -111,6 +112,8 @@ a.login_button {
 .login_button {
     padding: 10px 20px;
     border-radius: 10px;
+    color: #f2f2f2;
+    text-decoration: none;
 }
 
 /* Кнопка с зелёным фоном */
@@ -208,66 +211,12 @@ main {
     bottom: 0;
     left: 0;
     right: 0;
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 90%;
+    max-height: 90%;
+    height:65vh;
+    width:700px;
     margin: auto;
     transition: transform .4s ease-out;
-}
-
-.product:hover .product-photo img {
-    transform: scale(1.05);
-}
-
-.product p {
-    position: relative;
-    margin: 0;
-    font-size: 1em;
-    line-height: 1.4em;
-    height: 5.6em;
-    overflow: hidden;
-}
-
-.product p:after {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 4.2em;
-    height: 1.6em;
-    background: linear-gradient(to left top, #fff, rgba(255, 255, 255, 0));
-}
-
-.product-price-old b,
-.product-price-old small {
-    color: #888;
-}
-
-.product:hover .product-preview {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.product-buttons-wrap {
-    position: absolute;
-    top: 0;
-    left: -1px;
-    right: -1px;
-    bottom: 0;
-    visibility: hidden;
-    opacity: 0;
-    transform: scaleY(.8);
-    transform-origin: top;
-    transition: transform .2s ease-out;
-    z-index: -1;
-    backface-visibility: hidden;
-}
-
-.product-buttons-wrap:before {
-    content: "";
-    float: left;
-    height: 100%;
-    width: 100%;
 }
 
 .buttons {
@@ -280,15 +229,38 @@ main {
     border-radius: 3px;
 }
 
-.table-layout .product-main {
-    width: 50%;
-    float: left;
-    background: #fff;
+body {
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    margin: 0;
+    background-color: #f2f2f2;
 }
 
-.table-layout .product-buttons-wrap {
-    position: static;
-    visibility: visible;
-    opacity: 1;
-    transform: scaleY(1);
+.products {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.product-wrapper {
+    margin: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 20%;
+    background: #fff; 
+    text-align: center; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s; 
+}
+
+.product-wrapper:hover {
+    transform: scale(1.05);
+}
+
+.product-photo img {
+    max-width: 100%;
+    border-radius: 5px 5px 0 0;
 }

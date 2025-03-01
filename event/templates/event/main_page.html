@@ -5,17 +5,19 @@
 {% block content %}
 
 <body>
-    Новые
+    <h1>Новые</h1>
     <ul class="products">
         {% for i in new_events %}
             <li class="product-wrapper">
-                <span>
-                    {{ i.title }}
-                </span>
+                <a href="{% url 'event:info_event' i.pk %}">
+                    <span>
+                        {{ i.title }}
+                    </span>
 
-                <div class="product-photo">
-                    <img src="{{ i.image.url }}" alt="">
-                </div>
+                    <div class="product-photo">
+                        <img src="{{ i.image.url }}" alt="">
+                    </div>
+                </a>
             </li>
         {% endfor %}
     </ul>

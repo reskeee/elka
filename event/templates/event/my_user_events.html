@@ -4,19 +4,23 @@
 
 {% block content %}
 
-<div>
-    {% for i in Myevents %}
-        <div class="event">
-            <div class="center-image">
-                <img src="{{ i.event.image.url }}">
-            </div>
+<body>
+    <ul class="products">
+        {% for i in Myevents %}
+        <a href="{% url 'event:info_event' i.pk %}">
+            <li class="product-wrapper">
+                <div class="product-photo">
+                    <img src="{{ i.event.image.url }}">
+                </div>
 
-            <span>
-                {{ i.event.title }}
-            </span>
-        </div>
-    {% endfor %}
-</div>
+                <span>
+                    {{ i.event.title }}
+                </span>
+            </li>
+        </a>
+        {% endfor %}
+    </ul>
+</body>
 
 
 {% endblock %}
