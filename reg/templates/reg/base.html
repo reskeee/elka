@@ -10,80 +10,75 @@
 
 <div id="wrap">
 <header class="header">
-    <!-- Добавляем контейнер -->
     <div class="container">
-      <!-- Добавляем внутреннюю обёртку для выравнивания логотипа и меню -->
-      <div class="header__inner">
-        <!-- Создаём логотип сайта -->
-        <img class="logo" src="/static/logo.png"></a>
-        <!-- С помощью списка создаём навигационное меню -->
-        <nav class="menu">
-            {% if user.is_superuser %}
-            <div class="nav_button">
-                <a href="{% url 'event:admin_event' %}" class="nav_button-link">
-                    Мои события
-                </a>
-            </div>
-            {% else %}
-            <div class="nav_button">
-                <a href="{% url 'event:user_event' %}" class="nav_button-link">
-                    Мои события
-                </a>
-            </div>
-            {% endif %}
-
-            <div class="nav_button">
-                <a href="{% url 'reg:logout' %}" class="nav_button-link">
-                    Доступные события 
-                </a>
-            </div>
-
-            <div class="nav_button">
-                <a href="{% url 'reg:logout' %}" class="nav_button-link">
-                    Календарь
-                </a>
-            </div>
-
-            {% if user.is_superuser %}
-            <div class="nav_button">
-                <a href="{% url 'event:new_event' %}" class="nav_button-link">
-                    Новое событие
-                </a>
-            </div>
-            {% endif %}
-        </nav>
-
-        <nav class="auth">
-            {% if request.user.is_authenticated %}
-                <div class="login_button">
-                    <a href="{% url 'reg:logout' %}" class="login_button">
-                        Выйти из аккаунта
+        <div class="header__inner">
+            <img class="logo" src="/static/logo.png">
+            <nav class="menu">
+                {% if user.is_superuser %}
+                <div class="nav_button">
+                    <a href="{% url 'event:admin_event' %}" class="nav_button-link">
+                        Мои события
                     </a>
                 </div>
-            {% else %}
-                <div class="login_button">
-                    <a href="{% url 'reg:signup' %}" class="login_button">
-                        Регистрация
+                {% else %}
+                <div class="nav_button">
+                    <a href="{% url 'event:user_event' %}" class="nav_button-link">
+                        Мои события
+                    </a>
+                </div>
+                {% endif %}
+
+                <div class="nav_button">
+                    <a href="{% url 'event:all_event' %}" class="nav_button-link">
+                        Доступные события
                     </a>
                 </div>
 
-                <div class="login_button">
-                    <a href="{% url 'reg:login' %}" class="login_button">
-                        Вход в аккаунт
+                <div class="nav_button">
+                    <a href="{% url 'reg:logout' %}" class="nav_button-link">
+                        Календарь
                     </a>
                 </div>
-            {% endif %}
-        </nav>
-      </div>
+
+                {% if user.is_superuser %}
+                <div class="nav_button">
+                    <a href="{% url 'event:new_event' %}" class="nav_button-link">
+                        Новое событие
+                    </a>
+                </div>
+                {% endif %}
+            </nav>
+
+            <nav class="auth">
+                {% if request.user.is_authenticated %}
+                    <div class="login_button">
+                        <a href="{% url 'reg:logout' %}" class="login_button">
+                            Выйти из аккаунта
+                        </a>
+                    </div>
+                {% else %}
+                    <div class="login_button">
+                        <a href="{% url 'reg:signup' %}" class="login_button">
+                            Регистрация
+                        </a>
+                    </div>
+
+                    <div class="login_button">
+                        <a href="{% url 'reg:login' %}" class="login_button">
+                            Вход в аккаунт
+                        </a>
+                    </div>
+                {% endif %}
+            </nav>
+        </div>
     </div>
-  </header>
+</header>
 
-{% block content %} 
-<!-- # ВОТ ТУТ БЛОК КОНТЕНТ И ЕНД БЛОК. ОН ПЕРЕНОСИТ РАЗМЕТКУ ИЗ ОСТАЛЬНЫХ ФАЙЛОВ СЮДА И ПОЛУЧАЕТСЯ ЧТО РАЗМЕТКА НАХОДИТСЯ МЕЖДУ ШАПКОЙ И ПОДВАЛОМ -->
+{% block content %}
 {% endblock %}
+
 </div>
 
-  <footer>
+<footer>
     <p>Содержимое подвала</p>
-  </footer>
-
+</footer>
