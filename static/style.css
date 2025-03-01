@@ -1,0 +1,153 @@
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+body {
+    text-align: center;
+    height: 100%;
+}
+
+.header {
+    padding-top: 30px;
+}
+
+header {
+    background-color: #38b6ff;
+    padding: 10px;
+    display: flex;
+}
+
+footer{
+    background-color: #38b6ff;
+    padding: 10px;
+}
+
+.footer-collums{
+    display: flex;
+}
+  
+.footer-column{
+    flex: 50%;
+    margin: 20px;
+}
+
+.form {
+    display: inline-block;
+    background-color: #38b6ff;
+    margin: 40px;
+    border-radius: 10px;
+}
+
+input {
+    border-radius: 50px;
+    width: 300px;
+    height: 50px;
+    border-style: solid;
+    margin-bottom: 20px;
+}
+
+::placeholder {
+    text-align: center;
+}  
+
+/* Стилизуем контейнер */
+.container {
+    max-width: 1190px;
+    padding: 0 15px; /* Увеличиваем боковые отступы */
+    margin: 0 auto; /* Центрируем контейнер по горизонтали */
+}
+
+/* Стилизуем шапку сайта */
+.header {
+    padding-top: 30px; /* Увеличиваем верхний отступ шапки, чтобы логотип и меню не прилипали к экрану */
+}
+
+   /* Стилизуем внутренний контейнер шапки */
+.header__inner {
+    display: flex; /* Выстраиваем элементы внутри контейнера в строку */
+    justify-content: space-between; /* Распределяем элементы по ширине контейнера */
+    align-items: center; /* Выравниваем элементы по вертикали */
+}
+
+/* Стилизуем логотип */
+.logo {
+    text-transform: uppercase; /* Преобразуем текст в верхний регистр */
+    font-size: 28px; /* Устанавливаем размер шрифта */
+    font-weight: 900; /* Устанавливаем жирное начертание шрифта */
+    color: #ccebfd; /* Устанавливаем цвет логотипа */
+}
+   
+   /* Стилизуем списки меню */
+.menu__list {
+    display: flex; /* Отображаем элементы списка в строку */
+    list-style: none; /* Убираем стандартные маркеры (чёрные точки) */
+}
+
+/* Стилизуем пункты меню */
+.menu__list-item {
+    margin-right: 20px; /* Добавляем отступ между пунктами меню */
+}
+
+/* Стилизуем ссылки в меню */
+.menu__list-link {
+    padding: 10px 20px; /* Увеличиваем вертикальный и горизонтальный отступы */
+    font-size: 20px; /* Уменьшаем размер шрифта */
+    color: #dcf5fe; /* Устанавливаем цвет ссылок */
+    cursor: pointer; /* Задаём изменение вида курсора при наведении на пункты меню */
+    transition: all 0.3s; /* Добавляем плавное изменение стилей при наведении */
+}
+   
+   /* Добавляем стилизацию ссылок в меню при наведении курсора */
+.menu__list-link:hover {
+    color: #eb3e30; /* Задаём изменение цвета ссылок при наведении курсора */
+}
+
+a.login_button {
+    background-color: #24afff;
+    size: 50px;
+}
+
+.login_button {
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+button {
+    background-color: #4CAF50; /* Зеленый цвет фона */
+    border: none; /* Без рамки */
+    color: white; /* Цвет текста */
+    padding: 15px 70px; /* Отступы */
+    text-align: center; /* Центрирование текста */
+    text-decoration: none; /* Без подчеркивания */
+    display: inline-block; /* Внутренний блочный элемент */
+    font-size: 16px; /* Размер шрифта */
+    margin: 15px 2px; /* Отступы от других элементов */
+    cursor: pointer; /* Курсор-указатель */
+    border-radius: 8px; /* Закругление углов */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Плавный переход */
+}
+
+button:hover {
+    background-color: #45a049; /* Цвет фона при наведении */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Тень при наведении */
+}
+
+button:focus {
+    outline: none; /* Убрали обводку при фокусе */
+}
+
+#wrap {
+  min-height: 100%;
+}
+main {
+  padding-bottom: 100px;
+  /*Высота футера*/
+}
+
+footer {
+  margin-top: -100px;
+  /*Минус Высота футера*/
+  height: 100px;
+  /*Высота футера*/
+}
