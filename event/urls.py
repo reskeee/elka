@@ -6,5 +6,6 @@ from . import views
 app_name = 'event'
 
 urlpatterns = [
-    path('', views.actual_events, name='main_page')
+    path('', views.actual_events, name='main_page'),
+    path('new_event/', views.create_event, name='new_event')
 ]
