@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import user_passes_test
 
-from .models import Events
+from .models import Events, Myevent
 from .forms import NewItemForm
 
 
@@ -29,3 +29,36 @@ def create_event(request):
         form = NewItemForm()
 
     return render(request, 'event/new.html', context={'form': form})
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def my_admin_event(request):
+    events = Events.objects.filter(user=request.user)
+    return render(request, 'event/my_admin_events.html', {'events': events})
+
+
+@login_required
+def add_event(request, pk):
+    event = get_object_or_404(Events, pk=pk)
+    cart_item, created = Myevent.objects.get_or_create(
+        user=request.user,
+        event=event
+    )
+
+    cart_item.save()
+
+    return redirect('/')
+
+@login_required
+def my_user_event(request):
+    events = Myevent.objects.filter(user=request.user)
+
+    return render(request, 'event/my_user_events.html', {
+        'Myevents': events,
+    })
+
+
+def info_event(request, pk):
+    event = get_object_or_404(Events, pk=pk)
+
+    return render(request, 'event/event_detail.html', {'event': event})

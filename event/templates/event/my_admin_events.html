@@ -1,0 +1,22 @@
+{% extends 'reg/base.html' %}
+
+{% block title %}Мои созданные мероприятия{% endblock %}
+
+{% block content %}
+
+<div>
+    {% for i in events %}
+        <div class="event">
+            <div class="center-image">
+                <img src="{{ i.image.url }}">
+            </div>
+
+            <span>
+                {{ i.title }}
+            </span>
+        </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'reg/base.html' %}
+
+{% block title %}Информация о мероприятии{% endblock %}
+
+{% block content %}
+
+<div>
+    <div class="event">
+        <div class="center-image">
+            <img src="{{ event.image.url }}">
+        </div>
+
+        <span>
+            {{ event.title }}
+            {{ event.description }}
+            {{ event.event_datetime }}
+            {{ event.status }}
+            Создатель: {{ event.user }}
+        </span>
+    </div>
+    <a href="{% url 'event:add_event' event.pk %}"></a>
+</div>
+
+
+{% endblock %}
