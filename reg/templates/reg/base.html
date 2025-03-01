@@ -15,17 +15,35 @@
       <!-- Добавляем внутреннюю обёртку для выравнивания логотипа и меню -->
       <div class="header__inner">
         <!-- Создаём логотип сайта -->
-        <a class="logo" href="#">Logo</a>
+        <img class="logo" src="/static/logo.png"></a>
         <!-- С помощью списка создаём навигационное меню -->
         <nav class="menu">
-            {% if request.user.is_authenticated %}
-                <a href="#" class="login_button">
-                    Cart
+            <div class="nav_button">
+                <a href="{% url 'reg:logout' %}" class="nav_button-link">
+                    Мои события
                 </a>
+            </div>
 
-                <a href="{% url 'reg:logout' %}" class="login_button">
-                    Logout
+            <div class="nav_button">
+                <a href="{% url 'reg:logout' %}" class="nav_button-link">
+                    Доступные события 
                 </a>
+            </div>
+
+            <div class="nav_button">
+                <a href="{% url 'reg:logout' %}" class="nav_button-link">
+                    Календарь
+                </a>
+            </div>
+        </nav>
+
+        <nav class="auth">
+            {% if request.user.is_authenticated %}
+                <div class="login_button">
+                    <a href="{% url 'reg:logout' %}" class="login_button">
+                        Logout
+                    </a>
+                </div>
             {% else %}
                 <div class="login_button">
                     <a href="{% url 'reg:signup' %}" class="login_button">
