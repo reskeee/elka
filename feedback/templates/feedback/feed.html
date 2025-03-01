@@ -1,0 +1,33 @@
+{% extends 'reg/base.html' %}
+
+{% block title %}Обратная связь{% endblock %}
+
+{% block content %}
+
+    <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+        <h2 class="mb-12 text-2xl text-center">Обратная связь</h2>
+
+        <form method="get" action="{% url 'feedback:feedback_info' %}">
+                <input name="query" type="text"
+                       value="{{ query }}" placeholder="Поиск обратной связи">
+
+                <button>
+                    Поиск
+                </button>
+            </form>
+
+        <div>
+            <div>
+                {% for i in feedback %}
+                    <div>
+                        <h2>User: {{ i.user }}</h2>
+                        <p>email: {{ i.email }}</p>
+                        <p>message: {{ i.message }}</p>
+                        <p>created_at: {{ i.created_at }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

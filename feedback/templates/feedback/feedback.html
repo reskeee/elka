@@ -1,0 +1,20 @@
+{% extends 'reg/base.html' %}
+
+{% block title %}Обратная связь{% endblock %}
+
+{% block content %}
+
+    <div>
+        <h2>Обратная связь</h2>
+
+        <div>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button>Отправить</button>
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
