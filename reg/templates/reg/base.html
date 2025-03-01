@@ -34,11 +34,13 @@
                     </a>
                 </div>
 
+                {% if not user.is_superuser %}
                 <div class="nav_button">
-                    <a href="{% url 'reg:logout' %}" class="nav_button-link">
+                    <a href="{% url 'event:user_calendar' %}" class="nav_button-link">
                         Календарь
                     </a>
                 </div>
+                {% endif %}
 
                 {% if user.is_superuser %}
                 <div class="nav_button">

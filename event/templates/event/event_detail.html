@@ -19,6 +19,10 @@
         </span>
     </div>
     <a href="{% url 'event:add_event' event.pk %}">Хочу на это событие</a>
+    {% if user.is_superuser %}
+    <a href="{% url 'event:delete' event.pk %}">Удалить</a>
+    <a href="{% url 'event:edit_event' event.pk %}">Редактировать</a>
+    {% endif %}
 </div>
 
 

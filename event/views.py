@@ -1,3 +1,6 @@
+from calendar import HTMLCalendar
+from django.utils import timezone
+
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
@@ -5,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import user_passes_test
 
 from .models import Events, Myevent
-from .forms import NewItemForm
+from .forms import NewItemForm, EditItemForm
 
 
 def actual_events(request):
@@ -86,3 +89,68 @@ def all_event(request):
     return render(request, 'event/all.html', context={'event': event,
                                                        'query': query,
                                                        'page_obj': page_obj})
+
+@user_passes_test(lambda u: u.is_superuser)
+def delete(request, pk):
+    event = get_object_or_404(Events, pk=pk)
+    event.delete()
+
+    return redirect('/')
+
+
+def user_calendar(request):
+    user = request.user  # Текущий пользователь
+
+    # Получаем год и месяц из запроса
+    try:
+        year = int(request.GET.get('year', timezone.now().year))
+        month = int(request.GET.get('month', timezone.now().month))
+    except (ValueError, TypeError):
+        year = timezone.now().year
+        month = timezone.now().month
+
+    # Корректируем год и месяц, если они некорректны
+    if month > 12:
+        year += 1
+        month = 1
+    elif month < 1:
+        year -= 1
+        month = 12
+
+    # Получаем лайкнутые события пользователя
+    my_events = Myevent.objects.filter(user=user).select_related('event')
+
+    # Создаём календарь
+    cal = HTMLCalendar().formatmonth(year, month)
+
+    # Формируем данные для отображения событий в календаре
+    events_dict = {}
+    for my_event in my_events:
+        event_date = my_event.event.event_datetime.date()  # Дата события
+        if event_date not in events_dict:
+            events_dict[event_date] = []
+        events_dict[event_date].append(my_event.event)
+
+    return render(request, 'event/user_calendar.html', {
+        'calendar': cal,
+        'events_dict': events_dict,
+        'year': year,
+        'month': month,
+    })
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def edit(request, pk):
+    event = get_object_or_404(Events, pk=pk)
+    if request.method == 'POST':
+        form = EditItemForm(request.POST, request.FILES, instance=event)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect('event:info_event', pk=event.id)
+
+    else:
+        form = EditItemForm(instance=event)
+
+    return render(request, 'event/edit_event.html', context={'form': form})

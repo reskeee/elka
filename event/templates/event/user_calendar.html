@@ -1,0 +1,33 @@
+{% extends 'reg/base.html' %}
+
+{% block title %}Календарь мероприятий{% endblock %}
+
+{% block content %}
+
+<h1>Календарь событий</h1>
+<div>
+    <a href="?year={{ year }}&month={{ month|add:-1 }}">Предыдущий месяц</a>
+    <span>{{ year }}-{{ month }}</span>
+    <a href="?year={{ year }}&month={{ month|add:1 }}">Следующий месяц</a>
+</div>
+<table class="calendar">
+    {{ calendar|safe }}
+</table>
+
+<h2>События</h2>
+<ul class="event-list">
+    {% for date, events in events_dict.items %}
+        {% if date.year == year and date.month == month %}
+            <li>
+                <strong>{{ date }}</strong>
+                <ul>
+                    {% for event in events %}
+                        <li>{{ event.title }} ({{ event.event_datetime.time }})</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+
+{% endblock %}
