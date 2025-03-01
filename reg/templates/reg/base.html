@@ -90,7 +90,11 @@
         {% else %}
             <a href="{% url 'feedback:feedback_info' %}" class="footer-link">Обратная связь</a>
         {% endif %}
-        <a href="/support" class="footer-link">Поддержка</a>
+        {% if not user.is_superuser %}
+            <a href="{% url 'adminchat:chat_room' %}" class="footer-link">Поддержка</a>
+        {% else %}
+            <a href="{% url 'adminchat:chat_list' %}" class="footer-link">Поддержка</a>
+        {% endif %}
     </div>
     <p class="footer-text">Контакты: example@example.com | +7 (123) 456-78-90</p>
     <p class="footer-text">&copy; <span class="footer-year">2025</span></p>

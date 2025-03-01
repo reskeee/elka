@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,8 +41,19 @@ INSTALLED_APPS = [
     'reg.apps.RegConfig',
     'event.apps.EventConfig',
     'feedback.apps.FeedbackConfig',
+    'adminchat.apps.AdminchatConfig',
     'axes',
+    'channels',
 ]
+
+
+ASGI_APPLICATION = 'elka.asgi.application'
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
