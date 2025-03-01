@@ -13,13 +13,13 @@ body {
 }
 
 header {
-    background-color: #38b6ff;
+    background-color: #f91717;
     padding: 10px;
     display: flex;
 }
 
 footer{
-    background-color: #38b6ff;
+    background-color: #f91717;
     padding: 10px;
 }
 
@@ -34,7 +34,7 @@ footer{
 
 .form {
     display: inline-block;
-    background-color: #38b6ff;
+    background-color: #f91717;
     margin: 40px;
     border-radius: 10px;
 }
@@ -79,18 +79,21 @@ input {
 }
    
    /* Стилизуем списки меню */
-.menu__list {
+.menu {
     display: flex; /* Отображаем элементы списка в строку */
     list-style: none; /* Убираем стандартные маркеры (чёрные точки) */
 }
 
 /* Стилизуем пункты меню */
-.menu__list-item {
+.nav_button{
     margin-right: 20px; /* Добавляем отступ между пунктами меню */
+    background-color: #d10d0d;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 /* Стилизуем ссылки в меню */
-.menu__list-link {
+.nav_button-link {
     padding: 10px 20px; /* Увеличиваем вертикальный и горизонтальный отступы */
     font-size: 20px; /* Уменьшаем размер шрифта */
     color: #dcf5fe; /* Устанавливаем цвет ссылок */
@@ -104,7 +107,7 @@ input {
 }
 
 a.login_button {
-    background-color: #24afff;
+    background-color: #d10d0d;
     size: 50px;
 }
 
@@ -147,7 +150,35 @@ main {
 
 footer {
   margin-top: -100px;
-  /*Минус Высота футера*/
   height: 100px;
-  /*Высота футера*/
+}
+
+.event {
+    height: 300px;
+    width: 400px;
+    background-color: #adb8be;
+    margin: 15px;
+    display: inline-block;
+    border-radius: 10px;
+    position: relative;
+    align-items: center;
+}
+
+.event span {
+    position: absolute;
+    bottom: 0;
+}
+
+.event img {
+    width: 80%;
+    margin: 15px;
+    border-radius: 3px;
+}
+
+.logo {
+    width: 10%;
+}
+
+.center-image {
+    text-align: center;
 }

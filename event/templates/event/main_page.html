@@ -4,26 +4,21 @@
 
 {% block content %}
 
-<div>
+<body>
+    Новые
     <div>
-        Новые
         {% for i in new_events %}
-            <div>
-                <img src="{{ i.image.url }}">
-                {{ i.title }}
+            <div class="event">
+                <div class="center-image">
+                    <img src="{{ i.image.url }}">
+                </div>
+                
+                <span>
+                    {{ i.title }}
+                </span>
             </div>
         {% endfor %}
     </div>
-
-    <div>
-        Уже скоро
-        {% for i in active_events %}
-            <div>
-                <img src="{{ i.image.url }}">
-                {{ i.title }}
-            </div>
-        {% endfor %}
-    </div>
-</div>
+</body>
 
 {% endblock %}
