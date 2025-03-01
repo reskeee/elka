@@ -81,6 +81,17 @@
 
 </div>
 
-<footer>
-    <p>Содержимое подвала</p>
+<footer class="footer">
+    <div class="footer-links">
+        <a href="/about" class="footer-link">О нас</a>
+        <a href="/partners" class="footer-link">Партнеры</a>
+        {% if not user.is_superuser %}
+            <a href="{% url 'feedback:feedback' %}" class="footer-link">Обратная связь</a>
+        {% else %}
+            <a href="{% url 'feedback:feedback_info' %}" class="footer-link">Обратная связь</a>
+        {% endif %}
+        <a href="/support" class="footer-link">Поддержка</a>
+    </div>
+    <p class="footer-text">Контакты: example@example.com | +7 (123) 456-78-90</p>
+    <p class="footer-text">&copy; <span class="footer-year">2025</span></p>
 </footer>

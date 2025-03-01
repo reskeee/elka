@@ -267,21 +267,58 @@ body {
 
 
 /* Календарь */
-    .calendar {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    .calendar th, .calendar td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: center;
-    }
-    .calendar th {
-        background-color: #f2f2f2;
-    }
-    .event-list {
-        list-style-type: none;
-        padding: 0;
-    }
-    .event-list li {
-        margin: 5px 0;
+.calendar {
+    width: 100%;
+    border-collapse: collapse;
+}
+.calendar th, .calendar td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+.calendar th {
+    background-color: #f2f2f2;
+}
+.event-list {
+    list-style-type: none;
+    padding: 0;
+}
+.event-list li {
+    margin: 5px 0;
+
+
+/* Стили для футера */
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #e9ecef;
+    margin-top: 40px;
+}
+
+/* Стили для контейнера ссылок */
+.footer-links {
+    margin-bottom: 10px;
+}
+
+/* Стили для ссылок */
+.footer-link {
+    margin: 0 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+/* Стили для текста */
+.footer-text {
+    margin: 10px 0 0;
+    color: #6c757d;
+}
+
+/* Стили для года */
+.footer-year {
+    font-weight: bold;
+}

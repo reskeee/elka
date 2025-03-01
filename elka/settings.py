@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'reg.apps.RegConfig',
     'event.apps.EventConfig',
+    'feedback.apps.FeedbackConfig',
     'axes',
 ]
 
