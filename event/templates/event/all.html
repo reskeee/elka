@@ -3,8 +3,8 @@
 {% block title %}Все мероприятия{% endblock %}
 
 {% block content %}
-    <div>
-        <div>
+<body>
+        <div class="searching">
             <form method="get" action="{% url 'event:all_event' %}">
                 <input name="query" type="text"
                        value="{{ query }}" placeholder="Название или описание">
@@ -14,72 +14,68 @@
                 </button>
             </form>
 
-            <form method="get">
-                <label>Фильрация по датам:</label>
-                <label>От</label>
-                <input type="datetime-local" id="start_date" name="start_date">
-                <label>До</label>
-                <input type="datetime-local" id="end_date" name="end_date">
-                <button type="submit">Поиск</button>
-            </form>
+            <div class="dropdown">
+                <form method="get" class="filter">
+                    <h3><label>Фильрация по датам:</label></h3><p>
+                    <label>От</label>
+                    <input type="datetime-local" id="start_date" name="start_date"><p>
+                    <label>До</label>
+                    <input type="datetime-local" id="end_date" name="end_date"><p>
+                    <button type="submit">Поиск</button>
+                    <button>
+                        <a href="{% url 'event:all_event' %}">
+                            Сброс
+                        </a>
+                    </button>
+                </form>
+            </div>
+        </div>
 
+        <div>
+            <ul class="products">
+            {% for event in page_obj %}
+                <li class="product-wrapper">
+                    <a href="{% url 'event:info_event' event.pk %}">
+                        <div class="product-photo">
+                            <img src="{{ event.image.url }}">
+                        </div>
 
-            <p>Сбросить</p>
+                        <span>
+                            {{ event.title }}
+                        </span>
 
-            <ul>
-                <li>
-                    <a href="{% url 'event:all_event' %}">
-                        Сброс
                     </a>
                 </li>
+            {% endfor %}
             </ul>
         </div>
+        
 
-        <div>
-            <div>
-                {% for event in page_obj %}
-                    <li class="product-wrapper">
-                        <a href="{% url 'event:info_event' event.pk %}">
-                            <div class="product-photo">
-                                <img src="{{ event.image.url }}">
-                            </div>
-
-                            <span>
-                                {{ event.title }}
-                            </span>
-
-                        </a>
-                    </li>
-                {% endfor %}
+        
+            <div class="pagination">
+                <span>
+                    Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+                </span>
             </div>
 
-
-        <div class="pagination">
-            <span>
-                Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
-            </span>
-        </div>
-
-        <div>
-            {% if page_obj.has_previous %}
-                <a href="?page=1">Первая</a>
-                <a href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
-            {% endif %}
-
-            {% for num in page_obj.paginator.page_range %}
-                {% if page_obj.number == num %}
-                    <strong>{{ num }}</strong>
-                {% else %}
-                    <a href="?page={{ num }}">{{ num }}</a>
+            <div>
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">Первая</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
                 {% endif %}
-            {% endfor %}
 
-            {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">Следующая</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">Последняя</a>
-            {% endif %}
-        </div>
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <strong>{{ num }}</strong>
+                    {% else %}
+                        <a href="?page={{ num }}">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
 
-        </div>
-    </div>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Следующая</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">Последняя</a>
+                {% endif %}
+            </div>
+</body>
 {% endblock %}

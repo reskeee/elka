@@ -12,7 +12,7 @@
 <header class="header">
     <div class="container">
         <div class="header__inner">
-            <img class="logo" src="/static/logo.png">
+            <img class="logo" src="/static/logo.png" href="{% url 'event:main_page' %}"></a>
             <nav class="menu">
                 {% if user.is_superuser %}
                 <div class="nav_button">
@@ -83,7 +83,7 @@
 
 <footer class="footer">
     <div class="footer-links">
-        <a href="/about" class="footer-link">О нас</a>
+        <a href="{% url 'event:main_page' %}" class="footer-link">О нас</a>
         <a href="/partners" class="footer-link">Партнеры</a>
         {% if not user.is_superuser %}
             <a href="{% url 'feedback:feedback' %}" class="footer-link">Обратная связь</a>
