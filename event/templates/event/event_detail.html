@@ -25,5 +25,23 @@
     {% endif %}
 </div>
 
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+
+<h2>{{ event.name }}</h2>
+<p>Адрес: {{ event.address }}</p>
+<div id="map-{{ event.id }}" style="height: 300px; margin: 20px 0;"></div>
+
+<script>
+    const map{{ event.id }} = L.map('map-{{ event.id }}').setView([{{ event.latitude }}, {{ event.longitude }}], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map{{ event.id }});
+
+    L.marker([{{ event.latitude }}, {{ event.longitude }}])
+        .addTo(map{{ event.id }})
+        .bindPopup("{{ event.name }}");
+</script>
 
 {% endblock %}
