@@ -46,6 +46,15 @@ INSTALLED_APPS = [
     'channels',
 ]
 
+LEAFLET_CONFIG = {
+    'DEFAULT_CENTER': (55.7558, 37.6176),  # Координаты по умолчанию (Москва)
+    'DEFAULT_ZOOM': 10,  # Уровень масштабирования
+    'MIN_ZOOM': 3,
+    'MAX_ZOOM': 18,
+    'SCALE': 'both',
+    'ATTRIBUTION_PREFIX': 'Powered by Leaflet',
+}
+
 
 ASGI_APPLICATION = 'elka.asgi.application'
 
