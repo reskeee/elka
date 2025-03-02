@@ -26,6 +26,6 @@ def partners(request):
 
 
 def info_partner(request, pk):
-    partner = get_object_or_404(pk=pk)
+    partner = get_object_or_404(Partners, pk=pk)
 
     return render(request, 'partners/detail_partner.html', context={'partner': partner})
