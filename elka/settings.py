@@ -42,13 +42,14 @@ INSTALLED_APPS = [
     'event.apps.EventConfig',
     'feedback.apps.FeedbackConfig',
     'adminchat.apps.AdminchatConfig',
+    'partners.apps.PartnersConfig',
     'axes',
     'channels',
 ]
 
 LEAFLET_CONFIG = {
-    'DEFAULT_CENTER': (55.7558, 37.6176),  # Координаты по умолчанию (Москва)
-    'DEFAULT_ZOOM': 10,  # Уровень масштабирования
+    'DEFAULT_CENTER': (55.7558, 37.6176),
+    'DEFAULT_ZOOM': 10,
     'MIN_ZOOM': 3,
     'MAX_ZOOM': 18,
     'SCALE': 'both',

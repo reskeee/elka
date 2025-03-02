@@ -1,0 +1,27 @@
+{% extends 'reg/base.html' %}
+
+{% block title %}Партнеры{% endblock %}
+
+{% block content %}
+
+<body>
+    <h1>Партнеры</h1>
+    <a href="{% url 'partners:new_partner' %}">Добавить партнера</a>
+    <ul class="products">
+        {% for i in partners %}
+            <li class="product-wrapper">
+                <a href='#'>
+                    <span>
+                        {{ i.name }}
+                    </span>
+
+                    <div class="product-photo">
+                        <img src="{{ i.main_image.url }}" alt="">
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'reg/base.html' %}
+
+{% block title %}Добавление партнера{% endblock %}
+
+{% block content %}
+    <h1>Создать товар</h1>
+
+    <form method="post" action="." enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div>
+            {{ form.as_p }}
+        </div>
+
+        <h2>Дополнительные изображения товара</h2>
+        {{ formset.management_form }}
+        {% for image_form in formset %}
+            <div>
+                {{ image_form.as_p }}
+            </div>
+        {% endfor %}
+
+        <button type="submit">Сохранить</button>
+    </form>
+{% endblock %}

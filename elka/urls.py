@@ -24,7 +24,8 @@ urlpatterns = [
     path('auth/', include('reg.urls')),
     path('', include('event.urls')),
     path('feedback/', include('feedback.urls')),
-    path('adminchat/', include('adminchat.urls'))
+    path('adminchat/', include('adminchat.urls')),
+    path('partners/', include('partners.urls'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
