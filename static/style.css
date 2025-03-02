@@ -118,7 +118,7 @@ a.login_button {
 
 /* Кнопка с зелёным фоном */
 button {
-    background-color: #4CAF50;
+    background-color: #d10d0d;
     border: none;
     color: white;
     padding: 15px 70px;
@@ -267,25 +267,39 @@ body {
 
 
 /* Календарь */
-.calendar {
+.table.calendar {
     width: 100%;
     border-collapse: collapse;
+    margin: 20px 0;
 }
+
 .calendar th, .calendar td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 15px;
     text-align: center;
 }
+
 .calendar th {
-    background-color: #f2f2f2;
+    background-color: #007bff;
+    color: white;
 }
+
+.calendar td {
+    background-color: #f9f9f9;
+}
+
+.calendar td:hover {
+    background-color: #f1f1f1;
+}
+
 .event-list {
     list-style-type: none;
     padding: 0;
 }
+
 .event-list li {
     margin: 5px 0;
-
+}
 
 /* Стили для футера */
 .footer {
@@ -322,3 +336,19 @@ body {
 .footer-year {
     font-weight: bold;
 }
+
+.searching {
+    display: inline-block;
+    background-color: #c0c0c0;
+    width: 100%;
+}
+
+input[name="query"] {
+    width: 80%;
+  }
+
+.pagination {
+    clear: both; /* Или другие правила, чтобы сбросить положение */
+    margin-top: 20px; /* Для отступа от предыдущих элементов */
+}
+
