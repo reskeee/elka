@@ -6,12 +6,12 @@
 cd elka
 ```
 \
-После чего установить зависимости\
+После чего установить зависимости
 ```bash
 pip install -r requirements.txt
 ```
 \
-Проект готов к запуску\
+Проект готов к запуску
 ```bash
 python manage.py runserver
 ```
